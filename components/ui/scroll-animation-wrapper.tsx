@@ -32,7 +32,11 @@ export const ScrollAnimationWrapper = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once, amount });
   
-  // For parallax effect
+  // Only use parallax effect on desktop
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const shouldUseParallax = parallax && !isMobile;
+  
+  // For parallax effect - only calculate if needed
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -47,39 +51,42 @@ export const ScrollAnimationWrapper = ({
     }
   };
   
-  // Define animation variants based on direction
+  // Define animation variants based on direction - with reduced values for mobile
   let initial = {};
   let animate = { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 };
   
+  // Use smaller animation values on mobile devices
+  const baseValue = isMobile ? 20 : 40;
+  
   switch (direction) {
     case 'up':
-      initial = { opacity: 0, y: getIntensityValue(40) };
+      initial = { opacity: 0, y: getIntensityValue(baseValue) };
       break;
     case 'down':
-      initial = { opacity: 0, y: getIntensityValue(-40) };
+      initial = { opacity: 0, y: getIntensityValue(-baseValue) };
       break;
     case 'left':
-      initial = { opacity: 0, x: getIntensityValue(40) };
+      initial = { opacity: 0, x: getIntensityValue(baseValue) };
       break;
     case 'right':
-      initial = { opacity: 0, x: getIntensityValue(-40) };
+      initial = { opacity: 0, x: getIntensityValue(-baseValue) };
       break;
     case 'scale':
-      initial = { opacity: 0, scale: 0.8 };
+      initial = { opacity: 0, scale: isMobile ? 0.9 : 0.8 };
       break;
     case 'rotate':
-      initial = { opacity: 0, rotate: getIntensityValue(10) };
+      initial = { opacity: 0, rotate: getIntensityValue(isMobile ? 5 : 10) };
       break;
     case 'none':
       initial = { opacity: 0 };
       break;
   }
 
-  // Create parallax effect if enabled
+  // Create parallax effect if enabled and not on mobile
   const parallaxY = useTransform(
     scrollYProgress,
     [0, 1],
-    parallax ? [getIntensityValue(50) * parallaxSpeed, getIntensityValue(-50) * parallaxSpeed] : [0, 0]
+    shouldUseParallax ? [getIntensityValue(50) * parallaxSpeed, getIntensityValue(-50) * parallaxSpeed] : [0, 0]
   );
 
   return (
@@ -92,13 +99,8 @@ export const ScrollAnimationWrapper = ({
         delay,
         ease: "easeOut"
       }}
-      style={parallax ? { y: parallaxY } : {}}
+      style={shouldUseParallax ? { y: parallaxY } : {}}
       className={className}
-      whileInView={{
-        transitionEnd: {
-          animationIterationCount: "infinite"
-        }
-      }}
     >
       {children}
     </motion.div>

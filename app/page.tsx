@@ -1,15 +1,18 @@
+import dynamic from 'next/dynamic';
 import Navbar from "@/components/Navbar";
 import { Hero } from "@/components/ui/animated-hero";
-import { ProductShowcase } from "@/components/ui/product-showcase";
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
-import { IntegrationsGrid } from "@/components/ui/integrations-grid-new";
-import { OpenSourceSection } from "@/components/OpenSource";
-import { HeroPayoff } from "@/components/ui/hero-payoff";
-import { PricingSection } from "@/components/ui/pricing-section";
-import { FoundersNote } from "@/components/ui/founders-note";
-import { Footer } from "@/components/footer";
 import { ScrollAnimationWrapper } from "@/components/ui/scroll-animation-wrapper";
 import { AnimatedBackground } from "@/components/ui/animated-background";
+
+// Dynamically import heavier components to improve initial load time
+const ProductShowcase = dynamic(() => import('@/components/ui/product-showcase').then(mod => ({ default: mod.ProductShowcase })), { ssr: true });
+const IntegrationsGrid = dynamic(() => import('@/components/ui/integrations-grid-new').then(mod => ({ default: mod.IntegrationsGrid })), { ssr: true });
+const OpenSourceSection = dynamic(() => import('@/components/OpenSource').then(mod => ({ default: mod.OpenSourceSection })), { ssr: true });
+const HeroPayoff = dynamic(() => import('@/components/ui/hero-payoff').then(mod => ({ default: mod.HeroPayoff })), { ssr: true });
+const PricingSection = dynamic(() => import('@/components/ui/pricing-section').then(mod => ({ default: mod.PricingSection })), { ssr: true });
+const FoundersNote = dynamic(() => import('@/components/ui/founders-note').then(mod => ({ default: mod.FoundersNote })), { ssr: true });
+const Footer = dynamic(() => import('@/components/footer').then(mod => ({ default: mod.Footer })), { ssr: true });
 
 export default function Home() {
   return (
@@ -24,82 +27,100 @@ export default function Home() {
         <Hero />
       </div>
       
-      {/* Product Showcase with scale animation and parallax */}
+      {/* Product Showcase with simplified animation */}
       <ScrollAnimationWrapper 
         direction="scale" 
         className="w-full" 
-        amount={0.1} 
-        parallax={true} 
-        parallaxSpeed={0.3}
-        intensity="medium"
+        amount={0.05} 
+        parallax={false} 
+        intensity="light"
       >
         <ProductShowcase />
       </ScrollAnimationWrapper>
       
-      {/* Features Section with fade left animation and parallax */}
+      {/* Features Section with simplified animation */}
       <ScrollAnimationWrapper 
         direction="left" 
         className="w-full" 
         delay={0.1} 
-        amount={0.1}
-        parallax={true}
-        intensity="medium"
+        amount={0.05}
+        parallax={false}
+        intensity="light"
       >
         <FeaturesSectionWithHoverEffects />
       </ScrollAnimationWrapper>
       
-      {/* Integrations Grid with fade right animation and stronger effect */}
-      <ScrollAnimationWrapper 
-        direction="right" 
-        className="w-full" 
-        delay={0.1} 
-        amount={0.1}
-        intensity="strong"
-      >
-        <IntegrationsGrid />
-      </ScrollAnimationWrapper>
+      {/* Only enable parallax and stronger effects on desktop */}
+      <div className="hidden md:block w-full">
+        <ScrollAnimationWrapper 
+          direction="right" 
+          className="w-full" 
+          delay={0.1} 
+          amount={0.1}
+          intensity="medium"
+        >
+          <IntegrationsGrid />
+        </ScrollAnimationWrapper>
+      </div>
       
-      {/* OpenSource Section with rotate animation */}
+      {/* Mobile optimized version without parallax */}
+      <div className="md:hidden w-full">
+        <ScrollAnimationWrapper 
+          direction="up" 
+          className="w-full" 
+          intensity="light"
+        >
+          <IntegrationsGrid />
+        </ScrollAnimationWrapper>
+      </div>
+      
+      {/* OpenSource Section with simplified animation */}
       <ScrollAnimationWrapper 
-        direction="rotate" 
+        direction="up" 
         className="w-full" 
-        delay={0.2} 
-        amount={0.1}
         intensity="light"
       >
         <OpenSourceSection />
       </ScrollAnimationWrapper>
       
-      {/* Hero Payoff with fade up animation and parallax */}
-      <ScrollAnimationWrapper 
-        direction="up" 
-        className="w-full" 
-        delay={0.1} 
-        amount={0.1}
-        parallax={true}
-        parallaxSpeed={0.4}
-      >
-        <HeroPayoff />
-      </ScrollAnimationWrapper>
+      {/* Hero Payoff with different animations for mobile/desktop */}
+      <div className="hidden md:block w-full">
+        <ScrollAnimationWrapper 
+          direction="up" 
+          className="w-full" 
+          delay={0.1} 
+          amount={0.1}
+          parallax={true}
+          parallaxSpeed={0.2}
+        >
+          <HeroPayoff />
+        </ScrollAnimationWrapper>
+      </div>
       
-      {/* Pricing Section with scale animation */}
+      <div className="md:hidden w-full">
+        <ScrollAnimationWrapper 
+          direction="up" 
+          className="w-full" 
+          intensity="light"
+        >
+          <HeroPayoff />
+        </ScrollAnimationWrapper>
+      </div>
+      
+      {/* Pricing Section with simplified animation */}
       <ScrollAnimationWrapper 
         direction="scale" 
         className="w-full" 
-        delay={0.1} 
-        amount={0.1}
-        intensity="medium"
+        intensity="light"
       >
         <PricingSection />
       </ScrollAnimationWrapper>
       
-      {/* Founders Note with fade left animation */}
+      {/* Founders Note with simplified animation */}
       <ScrollAnimationWrapper 
-        direction="left" 
+        direction="up" 
         className="w-full" 
-        delay={0.2} 
-        amount={0.1}
-        intensity="medium"
+        intensity="light"
       >
         <FoundersNote />
       </ScrollAnimationWrapper>
@@ -108,7 +129,6 @@ export default function Home() {
       <ScrollAnimationWrapper 
         direction="up" 
         className="w-full" 
-        delay={0.3}
         intensity="light"
       >
         <Footer />
