@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Brain, CircuitBoard, Sparkles, Terminal, Code } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/buttonone";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +18,7 @@ interface ProductCardProps {
 }
 
 const FeaturesAccent = ({ children, color }: { children: React.ReactNode; color: string }) => (
-  <span className={cn("text-sm inline-block px-2 py-0.5 rounded-full bg-background/40 border border-background/10", color)}>
+  <span className={cn("text-sm inline-block px-2 py-0.5 rounded-full bg-primary border border-background/10", color)}>
     {children}
   </span>
 );
@@ -234,7 +234,10 @@ export function ProductShowcase() {
   ];
 
   return (
-    <section className="py-24 px-4 relative overflow-hidden">
+    <>
+    {/* <div className="pointer-events-none absolute left-1/2 bottom-full z-30 w-[60vw] h-40 -translate-x-1/2 translate-y-10 bg-gradient-to-t from-pink-400/30 via-purple-400/30 to-orange-300/20 blur-3xl opacity-80" /> */}
+    <section className="bg-primary py-24 px-4 relative overflow-hidden ">
+      
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
@@ -309,7 +312,12 @@ export function ProductShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-foreground/70"
+            className="text-4xl font-medium tracking-tight text-purple-900 sm:text-5xl md:text-6xl mb-4 bg-clip-text  "
+            style={{
+        fontFamily: 'BogueItalic, sans-serif',
+        fontStyle: 'italic',
+        
+      }}
           >
             Intelligent Solutions for the Future
           </motion.h2>
@@ -332,5 +340,7 @@ export function ProductShowcase() {
         </div>
       </motion.div>
     </section>
+    </>
+    
   );
 }

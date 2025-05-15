@@ -51,7 +51,7 @@ const itemVariants = {
 
 export const FoundersNote = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-20 overflow-hidden">
+    <section className="bg-primary py-20 overflow-hidden">
       <div className="container px-4 mx-auto max-w-6xl">
         <motion.div
           initial="hidden"
@@ -60,7 +60,11 @@ export const FoundersNote = () => {
           variants={containerVariants}
           className="mb-12 text-center"
         >
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold mb-4 text-[#7c3aed]">
+          <motion.h2 variants={itemVariants} className="text-4xl font-medium tracking-tight text-purple-900 sm:text-5xl md:text-6xl" style={{
+        fontFamily: 'BogueItalic, sans-serif',
+        fontStyle: 'italic',
+        
+      }}>
             Note from the Founders
           </motion.h2>
           <motion.p variants={itemVariants} className="text-gray-600 max-w-2xl mx-auto">

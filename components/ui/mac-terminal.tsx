@@ -45,7 +45,7 @@ export const MacTerminal: React.FC<MacTerminalProps> = ({ command, description }
       <div className="bg-white p-4 flex justify-between items-center">
         <div className="flex items-center">
           <span className="text-[#7c3aed] mr-2 font-semibold">$</span>
-          <code className="text-gray-800 font-mono select-all">{command}</code>
+          <code className="text-gray-800  select-all">{command}</code>
         </div>
         
         {/* Copy button */}

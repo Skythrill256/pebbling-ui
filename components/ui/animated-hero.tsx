@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/buttonone";
 import { MacTerminal } from "@/components/ui/mac-terminal";
 import { cn } from "@/lib/utils";
 

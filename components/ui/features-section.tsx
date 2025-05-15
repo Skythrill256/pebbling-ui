@@ -11,7 +11,7 @@ import {
   CircleDot, 
   CheckCircle2
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/buttonone";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -443,7 +443,7 @@ const CollaborationBoard = () => (
                 </div>
                 <div className="flex gap-1">
                   <div className="h-2 w-2 bg-yellow-400 rounded-full"></div>
-                  <div className="h-2 w-2 bg-gray-200 rounded-full"></div>
+                  <div className="h-2 w-2  rounded-full"></div>
                 </div>
               </div>
             </div>

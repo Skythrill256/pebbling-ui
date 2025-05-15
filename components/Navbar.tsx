@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from "next/image"
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/buttonone'
 import { RainbowButton } from '@/components/ui/rainbow-button'
 
 // A custom component to fetch and display GitHub stars
@@ -68,75 +68,55 @@ const Navbar = () => {
       className="py-2 fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 max-w-6xl w-[95%] flex items-center justify-center gap-6"
     >
       {/* Logo Pill */}
-      <div className="bg-[#f8effe] shadow-md rounded-full py-2 px-4 flex items-center flex-shrink-0">
+      
         <Link href="/" className="flex items-center space-x-1 sm:space-x-2 group">
-          <div className="h-8 w-8 sm:h-8 sm:w-8 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-105">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-black"
-            >
-              <path d="M2 22h20"/>
-              <path d="M10 6h4"/>
-              <path d="M10 10h4"/>
-              <path d="M10 14h4"/>
-              <path d="M10 18h4"/>
-              <rect x="6" y="2" width="12" height="20" rx="2"/>
-            </svg>
-          </div>
+          <Image src={"/logo.png"} alt="Logo" width={40} height={40} className="h-8 w-8 rounded-full" />
           <span className="text-sm sm:text-base font-bold text-black whitespace-nowrap">Pebbling AI</span>
         </Link>
-      </div>
+      
 
       {/* Navigation Pill */}
-      <div className="hidden md:block bg-[#f8effe] shadow-md rounded-full py-2 px-6 flex-grow-0 w-auto">
+      <div className="rounded-full bg-white/75 bg-gradient-to-r from-pink-200/40 via-violet-200/40 to-indigo-200/40 border border-white/50 text-sm font-medium text-gray-800 shadow-lg shadow-gray-800/5 ring-1 ring-gray-800/[.075] backdrop-blur-xl py-3.5 px-6 flex-grow-0 w-auto">
         <nav className="flex items-center justify-center space-x-6">
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black"
+            className="text-sm font-medium text-black hover:text-purple-900"
           >
             Articles
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black"
+            className="text-sm font-medium text-black hover:text-purple-900"
           >
             Security
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black"
+            className="text-sm font-medium text-black hover:text-purple-900"
           >
             Info & Log
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black"
+            className="text-sm font-medium text-black hover:text-purple-900"
           >
             Docs
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black"
+            className="text-sm font-medium text-black hover:text-purple-900"
           >
             Community
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black"
+            className="text-sm font-medium text-black hover:text-purple-900"
           >
             Status
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black"
+            className="text-sm font-medium text-black hover:text-purple-900"
           >
             Pricing
           </Link>
@@ -144,16 +124,16 @@ const Navbar = () => {
       </div>
 
       {/* Buttons Pill */}
-      <div className="bg-[#f8effe] shadow-md rounded-full py-2 px-4 flex-shrink-0">
-        <div className="hidden md:flex items-center space-x-2">
+      <div className=" py-2 px-4 flex-shrink-0">
+        <div className="hidden md:flex items-center space-x-2 ">
           <Link href="#">
-            <Button variant="outline" className="border-gray-200 hover:border-gray-300 bg-white text-gray-700 hover:text-black rounded-full px-3 py-1 h-8 text-sm">
+            <Button variant="outline" className="text-lg flex-none group relative  -ml-2 my-1 inline-flex items-center bg-clip-padding rounded-l-[20px] rounded-r-[8px] border h-8 pl-3 pr-[10px] bg-white/40 border-white/90 shadow hover:text-violet-600 hover:bg-violet-50/40 transition-colors duration-300  py-5">
               Sign In
             </Button>
           </Link>
           
           <Link href="#">
-            <Button className="bg-[#7c3aed] text-white hover:bg-[#7c3aed]/90 rounded-full px-4 py-1 h-8 text-sm shadow-sm shadow-[#7c3aed]/20">
+            <Button className="py-5 text-lg flex-none group relative  ml-5px -mr-2 my-1 h-8 pr-3 btn-xs btn-purple btn-border-dark border-none rounded-r-[20px] rounded-l-[8px] bg-gradient-to-r from-fuchsia-700 to-purple-700 text-white">
               Get Started
             </Button>
           </Link>
@@ -161,7 +141,7 @@ const Navbar = () => {
       </div>
       
       {/* Mobile Hamburger Button Pill */}
-      <div className="md:hidden bg-[#f8effe] shadow-md rounded-full p-2">
+      <div className="md:hidden bg-white/10 backdrop-blur-md shadow-md rounded-full p-2">
         <button
           className="p-1 rounded-full hover:bg-gray-100 transition-colors"
           onClick={toggleMenu}
@@ -197,54 +177,54 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden absolute left-1/2 -translate-x-1/2 top-16 w-[95%] max-w-6xl bg-[#f8effe] z-50 rounded-xl shadow-lg transition-all duration-300 ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
+        className={`md:hidden absolute left-1/2 -translate-x-1/2 top-16 w-[95%] max-w-6xl bg-white/10 backdrop-blur-md z-50 rounded-xl shadow-lg transition-all duration-300 ${isMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
       >
         <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
 
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black py-2 text-center"
+            className="text-sm font-medium text-black hover:text-black py-2 text-center"
           >
             Articles
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black py-2 text-center"
+            className="text-sm font-medium text-black hover:text-black py-2 text-center"
           >
             Security
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black py-2 text-center"
+            className="text-sm font-medium text-black hover:text-black py-2 text-center"
           >
             Info & Log
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black py-2 text-center"
+            className="text-sm font-medium text-black hover:text-black py-2 text-center"
           >
             Docs
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black py-2 text-center"
+            className="text-sm font-medium text-black hover:text-black py-2 text-center"
           >
             Community
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black py-2 text-center"
+            className="text-sm font-medium text-black hover:text-black py-2 text-center"
           >
             Status
           </Link>
           <Link
             href="#"
-            className="text-sm font-medium text-gray-600 hover:text-black py-2 text-center"
+            className="text-sm font-medium text-black hover:text-purple-900 py-2 text-center"
           >
             Pricing
           </Link>
           <Link href="#" className="w-full">
-            <Button variant="outline" className="w-full border-gray-200 hover:border-gray-300 bg-white text-gray-700 hover:text-black rounded-full text-sm">
+            <Button variant="outline" className="w-full border-gray-200 hover:border-gray-300 bg-white text-gray-700 hover:text-purple-900 rounded-full text-sm">
               Sign In
             </Button>
           </Link>

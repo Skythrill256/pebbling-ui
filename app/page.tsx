@@ -1,21 +1,25 @@
 import Navbar from "@/components/Navbar";
-import { Hero } from "@/components/ui/animated-hero";
+import  Hero  from "@/components/Hero";
 import { ProductShowcase } from "@/components/ui/product-showcase";
-import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
+import FeatureSection from "@/components/FeatureSection";
 import { IntegrationsGrid } from "@/components/ui/integrations-grid-new";
 import { OpenSourceSection } from "@/components/OpenSource";
-import { HeroPayoff } from "@/components/ui/hero-payoff";
+import { Registrypreview} from "@/components/ui/registrypreview";
 import { PricingSection } from "@/components/ui/pricing-section";
 import { FoundersNote } from "@/components/ui/founders-note";
 import { Footer } from "@/components/footer";
 import { ScrollAnimationWrapper } from "@/components/ui/scroll-animation-wrapper";
 import { AnimatedBackground } from "@/components/ui/animated-background";
-
+import FaqPage from "@/components/FAQ";
+import {Build} from "@/components/Build";
+import Timeline from "@/components/Timeline";
+import { HeroPayoff } from "@/components/Heropayoff";
+import FAQPage from "@/components/FAQ";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 relative overflow-hidden">
+    <main className="flex min-h-screen flex-col items-center bg-primary relative overflow-hidden">
       {/* Animated background */}
-      <AnimatedBackground />
+      {/* <AnimatedBackground /> */}
       
       <Navbar />
       
@@ -35,19 +39,58 @@ export default function Home() {
       >
         <ProductShowcase />
       </ScrollAnimationWrapper>
-      
+      {/*Registry Preview*/}
+      <ScrollAnimationWrapper 
+        direction="up" 
+        className="w-full" 
+        delay={0.1} 
+        amount={0.1}
+        parallax={true}
+        parallaxSpeed={0.4}
+      >
+        <Registrypreview />
+      </ScrollAnimationWrapper>
       {/* Features Section with fade left animation and parallax */}
       <ScrollAnimationWrapper 
         direction="left" 
-        className="w-full" 
+        className="w-full " 
         delay={0.1} 
         amount={0.1}
         parallax={true}
         intensity="medium"
       >
-        <FeaturesSectionWithHoverEffects />
+        <FeatureSection/>
       </ScrollAnimationWrapper>
-      
+      {/* OpenSource Section with rotate animation */}
+      <ScrollAnimationWrapper 
+        direction="rotate" 
+        className="w-full" 
+        delay={0.2} 
+        amount={0.1}
+        intensity="light"
+      >
+        <OpenSourceSection />
+      </ScrollAnimationWrapper>
+      {/*Built for scale*/}
+      <ScrollAnimationWrapper 
+        direction="right" 
+        className="w-full" 
+        delay={0.1} 
+        amount={0.1}
+        intensity="strong"
+      >
+        <Build/>
+
+      </ScrollAnimationWrapper>
+      {/*Changelog*/}
+      <ScrollAnimationWrapper 
+        direction="up" 
+        className="w-full" 
+        delay={0.1} 
+        amount={0.1}
+        intensity="strong">
+          <Timeline/>
+        </ScrollAnimationWrapper>
       {/* Integrations Grid with fade right animation and stronger effect */}
       <ScrollAnimationWrapper 
         direction="right" 
@@ -59,28 +102,9 @@ export default function Home() {
         <IntegrationsGrid />
       </ScrollAnimationWrapper>
       
-      {/* OpenSource Section with rotate animation */}
-      <ScrollAnimationWrapper 
-        direction="rotate" 
-        className="w-full" 
-        delay={0.2} 
-        amount={0.1}
-        intensity="light"
-      >
-        <OpenSourceSection />
-      </ScrollAnimationWrapper>
       
-      {/* Hero Payoff with fade up animation and parallax */}
-      <ScrollAnimationWrapper 
-        direction="up" 
-        className="w-full" 
-        delay={0.1} 
-        amount={0.1}
-        parallax={true}
-        parallaxSpeed={0.4}
-      >
-        <HeroPayoff />
-      </ScrollAnimationWrapper>
+      
+     
       
       {/* Pricing Section with scale animation */}
       <ScrollAnimationWrapper 
@@ -92,7 +116,27 @@ export default function Home() {
       >
         <PricingSection />
       </ScrollAnimationWrapper>
-      
+       {/* Hero Payoff with fade up animation and parallax */}
+      <ScrollAnimationWrapper 
+        direction="up" 
+        className="w-full" 
+        delay={0.1} 
+        amount={0.1}
+        parallax={true}
+        parallaxSpeed={0.4}
+      >
+        <HeroPayoff />
+      </ScrollAnimationWrapper>
+      {/* FAQ Section with fade left animation */}
+      <ScrollAnimationWrapper 
+        direction="left" 
+        className="w-full" 
+        delay={0.2} 
+        amount={0.1}
+        intensity="medium"
+      >
+       <FAQPage/>
+      </ScrollAnimationWrapper>
       {/* Founders Note with fade left animation */}
       <ScrollAnimationWrapper 
         direction="left" 

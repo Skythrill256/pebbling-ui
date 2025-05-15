@@ -50,7 +50,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({ command, className }) =>
   return (
     <div
       className={cn(
-        "relative w-full max-w-xl mx-auto font-mono text-sm rounded-lg overflow-hidden",
+        "relative w-full max-w-xl mx-auto  text-sm rounded-lg overflow-hidden",
         "border border-background/10 backdrop-blur-sm",
         "group transition-all duration-300 hover:border-background/30",
         className
@@ -68,7 +68,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({ command, className }) =>
       <div className="flex items-center justify-between bg-gradient-to-r from-background/60 to-background/40 p-4">
         <div className="flex items-center">
           <Terminal className="w-4 h-4 mr-3 text-primary opacity-70" />
-          <code className="font-mono">{command}</code>
+          <code className="">{command}</code>
         </div>
 
         {/* Copy button */}

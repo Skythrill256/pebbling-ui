@@ -9,7 +9,7 @@ interface Integration {
   name: string;
   description: string;
   icon: JSX.Element;
-  position: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 }
 
 export function IntegrationsGrid() {
@@ -43,7 +43,7 @@ export function IntegrationsGrid() {
           <path d="M15 17v5" />
         </svg>
       ),
-      position: "top-left",
+      
     },
     {
       name: "Agno",
@@ -64,7 +64,7 @@ export function IntegrationsGrid() {
           <circle cx="12" cy="12" r="4" />
         </svg>
       ),
-      position: "top-right",
+      
     },
     {
       name: "JavaScript",
@@ -89,7 +89,7 @@ export function IntegrationsGrid() {
           <path d="M16 20h.01" />
         </svg>
       ),
-      position: "bottom-left",
+      
     },
     {
       name: "Python",
@@ -112,7 +112,7 @@ export function IntegrationsGrid() {
           <path d="M22 13v-2c0-1.1-.9-2-2-2h-3" />
         </svg>
       ),
-      position: "bottom-right",
+      
     },
   ];
 
@@ -131,40 +131,7 @@ export function IntegrationsGrid() {
     }
   };
 
-  const Particles = ({ position }: { position: Integration["position"] }) => {
-    const particles = Array.from({ length: 5 });
-    const isLeft = position.includes("left");
-    const isTop = position.includes("top");
 
-    return (
-      <div className={`absolute ${getLineStyle(position)} pointer-events-none`}>
-        {particles.map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute h-1.5 w-1.5 rounded-full bg-purple-500"
-            initial={{
-              x: isLeft ? "0%" : "100%",
-              y: isTop ? "0%" : "100%",
-              opacity: 0,
-              scale: Math.random() * 0.5 + 0.5,
-            }}
-            animate={{
-              x: isLeft ? "100%" : "0%",
-              y: isTop ? "100%" : "0%",
-              opacity: [0, 1, 0],
-              scale: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: 2 + Math.random(),
-              delay: i * 0.4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
-    );
-  };
 
   const pulseAnimation = {
     initial: { scale: 1, opacity: 0.8, rotate: 0 },
@@ -213,7 +180,7 @@ export function IntegrationsGrid() {
 
   return (
     <motion.div
-      className="py-20 w-full bg-gradient-to-b from-white to-purple-50"
+      className="py-20 w-full bg-primary"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
@@ -288,17 +255,7 @@ export function IntegrationsGrid() {
               whileHover="hover"
               viewport={{ once: true }}
             >
-              {mounted && (
-                <>
-                  <div
-                    className={cn(
-                      "absolute bg-gradient-to-r from-purple-200 to-purple-300 opacity-50",
-                      getLineStyle(integration.position)
-                    )}
-                  />
-                  <Particles position={integration.position} />
-                </>
-              )}
+              
 
               <div className="mb-4 text-[#7c3aed]">{integration.icon}</div>
               <h3 className="text-lg font-semibold mb-2 text-[#7c3aed]">{integration.name}</h3>

@@ -59,9 +59,13 @@ export function FeaturesSectionWithHoverEffects() {
     },
   ];
   return (
-    <div className="py-16 max-w-7xl mx-auto px-4 sm:px-6 bg-gradient-to-b from-white to-purple-50/30 rounded-xl">
+    <div className="py-16 max-w-7xl mx-auto px-4 sm:px-6 bg-primary rounded-xl">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-[#7c3aed] md:text-4xl lg:text-5xl tracking-tighter">Our Features</h2>
+        <h2 className="text-4xl font-medium tracking-tight text-purple-900 sm:text-5xl md:text-6xl"  style={{
+        fontFamily: 'BogueItalic, sans-serif',
+        fontStyle: 'italic',
+        
+      }}>Our Features</h2>
         <p className="mt-4 text-lg text-[#7c3aed]/80 max-w-2xl mx-auto leading-relaxed tracking-tight">
           Everything you need to build amazing products, all in one place.
         </p>

@@ -2,8 +2,31 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@font-face {
+  font-family: "BogueItalic";
+  src: url("/fonts/Fontspring-DEMO-bogue-italic.otf") format("opentype");
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+}
+.purple-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.purple-scrollbar::-webkit-scrollbar-thumb {
+  background: #7c3aed; /* Tailwind purple-600 */
+  border-radius: 8px;
+}
+.purple-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
 
+/* For Firefox */
+.purple-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed transparent;
+}
 :root {
+  --font-montserrat: 'Montserrat', sans-serif;
   --accent: oklch(0.967 0.001 286.375);
   --secondary: oklch(0.967 0.001 286.375);
   --text-light: #6c757d;
@@ -17,8 +40,7 @@
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.21 0.006 285.885);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: #FFFAF9;
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
@@ -26,7 +48,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.705 0.015 286.067);
+  
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -45,6 +67,12 @@
   --color-3: hsl(210 100% 63%);
   --color-4: hsl(195 100% 63%);
   --color-5: hsl(90 100% 63%);
+   /* Chart colors with purple theme */
+    --chart-1: 270 70% 60%;
+    --chart-2: 250 70% 60%;
+    --chart-3: 290 70% 60%;
+    --chart-4: 310 70% 60%;
+    --chart-5: 230 70% 60%;
 }
 
 /* Define theme variables */
@@ -52,7 +80,13 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --: var(--font-geist-mono);
+   /* Chart colors with purple theme */
+    --chart-1: 270 70% 60%;
+    --chart-2: 250 70% 60%;
+    --chart-3: 290 70% 60%;
+    --chart-4: 310 70% 60%;
+    --chart-5: 230 70% 60%;
 }
 
 /* Force light mode */
@@ -62,7 +96,7 @@
 }
 
 body {
-  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+  font-family: var(--font-montserrat);
   color: #7c3aed;
 }
 
@@ -164,6 +198,12 @@ h1, h2, h3, h4, h5, h6 {
   --color-color-3: var(----color-3);
   --color-color-2: var(----color-2);
   --color-color-1: var(----color-1);
+   /* Chart colors with purple theme */
+    --chart-1: 270 70% 60%;
+    --chart-2: 250 70% 60%;
+    --chart-3: 290 70% 60%;
+    --chart-4: 310 70% 60%;
+    --chart-5: 230 70% 60%;
 }
 
 .dark {
@@ -173,8 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.92 0.004 286.32);
-  --primary-foreground: oklch(0.21 0.006 285.885);
+
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.274 0.006 286.033);

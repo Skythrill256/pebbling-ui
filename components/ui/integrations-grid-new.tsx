@@ -164,7 +164,7 @@ export function IntegrationsGrid() {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 w-full bg-gradient-to-b from-white to-purple-50 overflow-hidden"
+      className="py-20 w-full bg-primary overflow-hidden"
     >
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header section with scroll animations */}
@@ -180,7 +180,7 @@ export function IntegrationsGrid() {
           }}
         >
           <motion.h2 
-            className="text-3xl font-bold text-[#7c3aed] md:text-4xl lg:text-5xl mb-4"
+            className="text-4xl font-medium tracking-tight text-purple-900 sm:text-5xl md:text-6xl mb-4"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { 
               opacity: 1, 
@@ -190,6 +190,11 @@ export function IntegrationsGrid() {
                 delay: 0.2
               }
             } : { opacity: 0, scale: 0.9 }}
+             style={{
+        fontFamily: 'BogueItalic, sans-serif',
+        fontStyle: 'italic',
+        
+      }}
           >
             Seamless Integrations
           </motion.h2>
@@ -211,96 +216,7 @@ export function IntegrationsGrid() {
 
         {/* Integration cards grid with central hub */}
         <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-4xl mx-auto">
-          {/* Central Hub */}
-          <motion.div 
-            className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={isInView ? { 
-              opacity: 1, 
-              scale: 1,
-              transition: {
-                duration: 0.7,
-                delay: 0.5,
-                type: "spring",
-                stiffness: 50
-              }
-            } : { opacity: 0, scale: 0.5 }}
-          >
-            <motion.div
-              className="relative flex items-center justify-center"
-              animate={{ 
-                rotate: 360,
-                scale: [1, 1.05, 1],
-                opacity: [0.8, 1, 0.8],
-              }}
-              transition={{
-                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                opacity: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-              }}
-            >
-              {/* Inner glow */}
-              <motion.div 
-                className="absolute w-20 h-20 rounded-full bg-purple-200 blur-xl opacity-70"
-                animate={{
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              
-              {/* Outer subtle glow */}
-              <motion.div 
-                className="absolute w-32 h-32 rounded-full bg-purple-100 blur-3xl opacity-50"
-                animate={{
-                  scale: [1, 1.3, 1],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
-              />
-              
-              {/* Extra glow ring */}
-              <motion.div 
-                className="absolute w-40 h-40 rounded-full border-2 border-purple-200 opacity-40"
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.4, 0.1, 0.4],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-              />
-              
-              {/* Hub icon */}
-              <div className="relative z-10 w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg border border-purple-100">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-8 w-8 text-[#7c3aed]"
-                >
-                  <path d="M12 2H2v10h10V2z" />
-                  <path d="M12 12H2v10h10V12z" />
-                  <path d="M22 2h-10v10h10V2z" />
-                  <path d="M22 12h-10v10h10V12z" />
-                </svg>
-              </div>
-            </motion.div>
-          </motion.div>
+         
 
           {/* Integration Cards */}
           {integrations.map((integration, index) => (
@@ -342,18 +258,7 @@ export function IntegrationsGrid() {
                 }
               }}
             >
-              {/* Connection line to center */}
-              {mounted && (
-                <>
-                  <div
-                    className={cn(
-                      "absolute bg-gradient-to-r from-purple-200 to-purple-300 opacity-50",
-                      getLineStyle(integration.position)
-                    )}
-                  />
-                  <Particles position={integration.position} />
-                </>
-              )}
+             
 
               <motion.div 
                 className="mb-4 text-[#7c3aed]"

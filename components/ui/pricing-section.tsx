@@ -144,7 +144,7 @@ const PricingCard: React.FC<{ plan: PricingPlan; index: number }> = ({ plan, ind
         className={cn(
           'w-full py-3 rounded-lg font-semibold text-center transition-all duration-150 mt-auto',
           plan.buttonVariant === 'primary'
-            ? 'bg-[#7c3aed] text-white hover:bg-purple-700 shadow-md hover:shadow-lg'
+            ? 'bg-gradient-to-r from-fuchsia-700 to-purple-700 text-white  shadow-md hover:shadow-lg'
             : 'bg-white text-[#7c3aed] border border-purple-300 hover:bg-purple-50'
         )}
       >
@@ -159,7 +159,7 @@ export const PricingSection = () => {
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
   return (
-    <section ref={sectionRef} className="bg-gradient-to-b from-white to-purple-50 py-24 overflow-hidden">
+    <section ref={sectionRef} className="bg-primary py-24 overflow-hidden">
       <div className="container px-4 mx-auto max-w-6xl relative">
         {/* Decorative elements */}
         <motion.div 
@@ -181,7 +181,11 @@ export const PricingSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#7c3aed]">Flexible Pricing for All Your Needs</h2>
+          <h2 className="text-3xl font-medium tracking-tight text-purple-900 sm:text-4xl md:text-5xl"style={{
+        fontFamily: 'BogueItalic, sans-serif',
+        fontStyle: 'italic',
+        
+      }}>Flexible Pricing for All Your Needs</h2>
           <p className="text-purple-600 text-lg">
             Choose the perfect plan that aligns with your growth and operational requirements.
           </p>

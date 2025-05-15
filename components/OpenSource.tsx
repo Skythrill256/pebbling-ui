@@ -2,11 +2,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/buttonone";
 
 export const OpenSourceSection = () => {
   return (
-    <section className="w-full py-12 md:py-24 bg-gradient-to-b from-white to-purple-50">
+    <section className="w-full py-12 md:py-24 bg-primary">
       <div className="container px-4 md:px-6 mx-auto max-w-5xl">
         <motion.div 
           className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -15,7 +15,11 @@ export const OpenSourceSection = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            <span className="bg-gradient-to-r from-[#7c3aed] to-purple-500 bg-clip-text text-transparent inline-block font-extrabold">Proudly open-source</span>
+            <span className="text-4xl font-medium tracking-tight text-purple-900 sm:text-5xl md:text-6xl" style={{
+        fontFamily: 'BogueItalic, sans-serif',
+        fontStyle: 'italic',
+        
+      }} >Proudly opensource</span>
           </h2>
           <p className="max-w-[600px] text-[#7c3aed] md:text-xl">
             Our source code is available on GitHub - feel free to read,
@@ -24,7 +28,7 @@ export const OpenSourceSection = () => {
           
           <Button 
             onClick={() => window.open("https://github.com/Pebbling-ai/pebble", "_blank")}
-            className="mt-4 bg-[#7c3aed] text-white hover:bg-purple-700 px-6 py-3 rounded-lg font-semibold"
+            className="mt-4 bg-gradient-to-r from-fuchsia-700 to-purple-700 text-white  px-6 py-3 rounded-lg font-semibold"
           >
             <span className="flex items-center">
               <GitHubLogoIcon className="mr-2 h-5 w-5" />
