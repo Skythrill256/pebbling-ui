@@ -15,6 +15,7 @@ import {Build} from "@/components/Build";
 import Timeline from "@/components/Timeline";
 import { HeroPayoff } from "@/components/Heropayoff";
 import FAQPage from "@/components/FAQ";
+import Matrices from "@/components/matrices";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-primary relative overflow-hidden">
@@ -27,7 +28,7 @@ export default function Home() {
       <div className="w-full">
         <Hero />
       </div>
-      
+      <Matrices/>
       {/* Product Showcase with scale animation and parallax */}
       <ScrollAnimationWrapper 
         direction="scale" 

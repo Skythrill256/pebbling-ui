@@ -10,7 +10,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="w-full">
+    <main className="w-full min-h-screen">
       <section className="relative w-full flex justify-center overflow-hidden bg-primary">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.4, delay: 0.4 }}
-              className="relative h-[500px] w-full"
+              className="relative h-[350px] md:h-[500px] w-full"
             >
               <HeroVideo />
             </motion.div>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "@/components/ui/chart"
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts"
 
 // Generate sample data for the last 24 hours
 const generateData = () => {

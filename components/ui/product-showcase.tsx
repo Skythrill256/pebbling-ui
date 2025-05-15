@@ -12,7 +12,7 @@ interface ProductCardProps {
   description: string;
   features: string[];
   icon: React.ReactNode;
-  gradient: string;
+  gradient?: string;
   accentColor: string;
   delay: number;
 }
@@ -211,7 +211,7 @@ export function ProductShowcase() {
         "Enterprise-grade security and permissions"
       ],
       icon: <Brain className="w-5 h-5" />,
-      gradient: "bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-500/20",
+      
       accentColor: "text-cyan-500",
 
       delay: 0.2
@@ -226,7 +226,7 @@ export function ProductShowcase() {
         "Adaptive memory crystallization"
       ],
       icon: <CircuitBoard className="w-5 h-5" />,
-      gradient: "bg-gradient-to-br from-rose-500/20 via-pink-500/20 to-orange-500/20",
+      
       accentColor: "text-rose-500",
 
       delay: 0.4
@@ -238,54 +238,7 @@ export function ProductShowcase() {
     {/* <div className="pointer-events-none absolute left-1/2 bottom-full z-30 w-[60vw] h-40 -translate-x-1/2 translate-y-10 bg-gradient-to-t from-pink-400/30 via-purple-400/30 to-orange-300/20 blur-3xl opacity-80" /> */}
     <section className="bg-primary py-24 px-4 relative overflow-hidden ">
       
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute -top-[40%] -left-[10%] w-[70%] h-[70%] bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-full blur-3xl" 
-          animate={{ 
-            scale: [1, 1.05, 1],
-            rotate: [0, 2, 0],
-            x: [0, -10, 0],
-            y: [0, 10, 0]
-          }}
-          transition={{ 
-            duration: 20, 
-            ease: "easeInOut", 
-            repeat: Infinity
-          }}
-        />
-        <motion.div 
-          className="absolute -bottom-[30%] -right-[10%] w-[60%] h-[60%] bg-gradient-to-br from-rose-500/5 to-orange-500/5 rounded-full blur-3xl" 
-          animate={{ 
-            scale: [1, 1.1, 1],
-            rotate: [0, -3, 0],
-            x: [0, 20, 0],
-            y: [0, -15, 0]
-          }}
-          transition={{ 
-            duration: 25, 
-            ease: "easeInOut", 
-            repeat: Infinity,
-            delay: 1
-          }}
-        />
-        <motion.div 
-          className="absolute top-[10%] left-[80%] w-[40rem] h-[40rem] bg-gradient-to-br from-green-500/5 to-cyan-500/5 rounded-full blur-3xl" 
-          animate={{ 
-            scale: [1, 0.95, 1],
-            rotate: [0, 5, 0],
-            x: [0, 15, 0],
-            y: [0, 20, 0]
-          }}
-          transition={{ 
-            duration: 30, 
-            ease: "easeInOut", 
-            repeat: Infinity,
-            delay: 2
-          }}
-        />
-        <div className="absolute -z-10 inset-0 bg-grid-white/[0.02] [mask-image:linear-gradient(to_bottom,transparent,black,transparent)] dark:bg-grid-dark/[0.05]"></div>
-      </div>
+      
       
       <motion.div
         initial={{ opacity: 0 }}

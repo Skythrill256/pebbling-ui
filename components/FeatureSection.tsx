@@ -163,7 +163,7 @@ const FeatureSection = () => {
   const totalFeatures = categories.reduce((acc, category) => acc + category.features.length, 0);
 
   return (
-    <section className="w-full py-24 md:py-32 bg-primary relative overflow-hidden" ref={containerRef}>
+    <section className="w-full py-24 bg-primary relative overflow-hidden" ref={containerRef}>
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         <motion.div 
